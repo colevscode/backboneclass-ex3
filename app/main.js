@@ -4,7 +4,15 @@ var photodata = [{url: "/photos/cat1.jpg", caption: "A cat."},
                  {url: "/photos/cat4.jpg", caption: "A cat."}, 
            	     {url: "/photos/cat5.jpg", caption: "A cat."},
                  {url: "/photos/cat6.jpg", caption: "A cat."}, 
-                 {url: "/photos/notcat.jpg", caption: "Not a cat."}]
+                 {url: "/photos/notcat.jpg", caption: "Not a cat."}];
+
+var PhotoView = Backbone.View.extend({
+	className: "photo",
+	render: function(photo) {
+		this.$el.html(Handlebars.templates.photo(photo));
+		return this;
+	}
+});
 
 var GalleryView = Backbone.View.extend({
 	render: function(photodata) {
@@ -17,15 +25,7 @@ var GalleryView = Backbone.View.extend({
 	}
 });
 
-var PhotoView = Backbone.View.extend({
-	className: "photo",
-	render: function(photo) {
-		this.$el.html(Handlebars.templates.photo(photo));
-		return this;
-	}
-})
-
-$(function(){
+$(document).ready(function() {
 	var galleryView = new GalleryView({el: "div.gallery"});
 	galleryView.render(photodata);
 });
