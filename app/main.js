@@ -1,15 +1,15 @@
-var photos = [{url: "/photos/cat1.jpg", caption: "A cat."}, 
-             {url: "/photos/cat2.jpg", caption: "A cat."}, 
-             {url: "/photos/cat3.jpg", caption: "A cat."},
-             {url: "/photos/cat4.jpg", caption: "A cat."}, 
-             {url: "/photos/cat5.jpg", caption: "A cat."},
-             {url: "/photos/cat6.jpg", caption: "A cat."}, 
-             {url: "/photos/notcat.jpg", caption: "Not a cat."}]
+var photodata = [{url: "/photos/cat1.jpg", caption: "A cat."}, 
+                 {url: "/photos/cat2.jpg", caption: "A cat."}, 
+                 {url: "/photos/cat3.jpg", caption: "A cat."},
+                 {url: "/photos/cat4.jpg", caption: "A cat."}, 
+           	     {url: "/photos/cat5.jpg", caption: "A cat."},
+                 {url: "/photos/cat6.jpg", caption: "A cat."}, 
+                 {url: "/photos/notcat.jpg", caption: "Not a cat."}]
 
 var GalleryView = Backbone.View.extend({
-	render: function(photos) {
+	render: function(photodata) {
 		var self = this;
-		_.each(photos, function(photo) {
+		_.each(photodata, function(photo) {
 			var photoView = new PhotoView();
 			self.$el.append(photoView.render(photo).el);
 		});
@@ -27,5 +27,5 @@ var PhotoView = Backbone.View.extend({
 
 $(function(){
 	var galleryView = new GalleryView({el: "div.gallery"});
-	galleryView.render(photos);
+	galleryView.render(photodata);
 });
