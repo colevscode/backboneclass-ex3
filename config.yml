@@ -13,12 +13,12 @@ scripts:
 - /libraries/underscore*.js
 - /libraries/backbone*.js
 - /libraries/handlebars*.js
-- /**/*.js
+- /app/**/*.js
 
 
 # styles: These stylesheets will be packaged and linked in order, 
 # similar to scripts.
 
 styles:
-- /**/*.css
+- /app/**/*.css
 
